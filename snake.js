@@ -42,11 +42,22 @@ function initSnakeAnimation() {
 }
 
 function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const dpr = window.devicePixelRatio || 1;
     
-    gridWidth = Math.floor(canvas.width / SNAKE_CONFIG.gridSize);
-    gridHeight = Math.floor(canvas.height / SNAKE_CONFIG.gridSize);
+    // CSS-Größe setzen
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    
+    // Tatsächliche Canvas-Auflösung für scharfe Pixel
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    
+    // Context für HiDPI skalieren
+    ctx.scale(dpr, dpr);
+    
+    // Grid-Größe basierend auf logischer Größe berechnen
+    gridWidth = Math.floor(window.innerWidth / SNAKE_CONFIG.gridSize);
+    gridHeight = Math.floor(window.innerHeight / SNAKE_CONFIG.gridSize);
     
     if (snake.length > 0) {
         snake.forEach(segment => {
