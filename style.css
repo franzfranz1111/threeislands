@@ -1,0 +1,541 @@
+/* Pixel Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* CSS Reset und Basis */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Press Start 2P', monospace;
+    background: #000;
+    color: #00FF66;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Canvas für Snake Animation */
+#snakeCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background: #000;
+    pointer-events: none;
+}
+
+/* Screen Management */
+.screen {
+    position: relative;
+    min-height: 100vh;
+    padding: 20px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Login Screen */
+.login-container {
+    background: rgba(0, 0, 0, 0.6);
+    border: 4px solid #00FF66;
+    padding: 30px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 12px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.logo-small {
+    max-width: 80px;
+    height: auto;
+    margin-bottom: 30px;
+    image-rendering: pixelated;
+}
+
+/* Pixel Text */
+.pixel-text {
+    font-family: 'Press Start 2P', monospace;
+    color: #00FF66;
+    text-shadow: 2px 2px 0px #003300;
+    margin-bottom: 15px;
+}
+
+.pixel-text.small {
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+h1.pixel-text {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+h2.pixel-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Form Elements */
+.login-form {
+    margin-top: 20px;
+}
+
+.pixel-input {
+    font-family: 'Press Start 2P', monospace;
+    background: #000;
+    color: #00FF66;
+    border: 2px solid #00FF66;
+    padding: 12px;
+    font-size: 12px;
+    width: 100%;
+    margin-bottom: 15px;
+    outline: none;
+    text-align: center;
+}
+
+.pixel-input::placeholder {
+    color: #006633;
+}
+
+.pixel-input:focus {
+    border-color: #00FF99;
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+}
+
+.pixel-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pixel-button {
+    font-family: 'Press Start 2P', monospace;
+    background: #000;
+    color: #00FF66;
+    border: 3px solid #00FF66;
+    padding: 12px 20px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.1s;
+    min-height: 48px;
+    min-width: 120px;
+    margin: 5px;
+}
+
+.pixel-button:hover {
+    background: #00FF66;
+    color: #000;
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+}
+
+.pixel-button:active {
+    transform: translateY(2px);
+}
+
+.pixel-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.pixel-button:disabled:hover {
+    background: #000;
+    color: #00FF66;
+    transform: none;
+}
+
+.pixel-button.loading {
+    background: #003366;
+    color: #00CCFF;
+    animation: pulse-loading 0.8s infinite alternate;
+}
+
+.pixel-button.error {
+    background: #330000;
+    color: #FF3366;
+    animation: shake 0.3s;
+}
+
+@keyframes pulse-loading {
+    0% { 
+        opacity: 0.6;
+        box-shadow: 0 0 5px rgba(0, 204, 255, 0.3);
+    }
+    100% { 
+        opacity: 1;
+        box-shadow: 0 0 15px rgba(0, 204, 255, 0.6);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+}
+
+/* Error Message */
+.error-message {
+    color: #FF3366;
+    font-size: 10px;
+    margin-top: 10px;
+    min-height: 20px;
+}
+
+/* Main App */
+#mainApp {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Main Menu */
+.menu-screen {
+    text-align: center;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+}
+
+.main-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logout-button {
+    font-size: 10px;
+    margin-top: 20px;
+    width: auto;
+    min-width: 120px;
+}
+
+.nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    width: 200px;
+    height: 60px;
+    font-size: 14px;
+}
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: auto;
+    min-width: 100px;
+    z-index: 100;
+}
+
+/* Content Sections */
+.content-section {
+    display: none;
+    background: rgba(0, 0, 0, 0.9);
+    border: 4px solid #00FF66;
+    padding: 30px;
+    margin: 20px;
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Image Container */
+.image-container {
+    margin: 20px 0;
+}
+
+.route-image {
+    max-width: 90%;
+    height: auto;
+    border: 2px solid #00FF66;
+    image-rendering: pixelated;
+}
+
+.placeholder-image {
+    width: 300px;
+    height: 200px;
+    border: 2px solid #00FF66;
+    background: #001100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* Video Container */
+.video-container {
+    margin: 20px 0;
+}
+
+.youtube-embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border: 2px solid #00FF66;
+}
+
+.youtube-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-fallback {
+    color: #FF3366;
+    margin-top: 20px;
+}
+
+/* Signup Info */
+.signup-info {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.signup-info p {
+    margin-bottom: 20px;
+}
+
+.signup-steps, .contact-info {
+    margin: 30px 0;
+    padding: 20px;
+    border: 2px solid #00FF66;
+    background: rgba(0, 17, 0, 0.8);
+}
+
+.signup-steps h3 {
+    margin-bottom: 15px;
+}
+
+.signup-link, .route-link {
+    display: inline-block;
+    text-decoration: none;
+    margin: 20px 0;
+    padding: 15px 25px;
+}
+
+.route-links {
+    margin: 25px 0;
+    text-align: center;
+}
+
+/* Marketing Countdown Styles */
+.urgent-banner {
+    border: 3px solid #FF0000;
+    padding: 10px;
+    margin: 20px 0;
+    animation: flash 1.5s infinite alternate;
+    text-align: center;
+}
+
+.countdown-container {
+    background: rgba(255, 255, 0, 0.1);
+    border: 2px solid #FFFF00;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 15px 0;
+}
+
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #000;
+    border: 2px solid #00FF66;
+    padding: 10px;
+    min-width: 60px;
+}
+
+.countdown-number {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 24px;
+    color: #00FF66;
+    display: block;
+}
+
+.countdown-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: #00FF66;
+    margin-top: 5px;
+}
+
+.availability-alert {
+    background: rgba(255, 102, 0, 0.2);
+    border: 2px solid #FF6600;
+    padding: 15px;
+    margin: 20px 0;
+    animation: pulse 2s infinite;
+}
+
+.pulsing {
+    animation: pulse-button 1s infinite alternate;
+    background: #FF3366 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
+}
+
+@keyframes flash {
+    0% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes pulse-button {
+    0% { 
+        box-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
+        transform: scale(1);
+    }
+    100% { 
+        box-shadow: 0 0 30px rgba(255, 51, 102, 0.8);
+        transform: scale(1.05);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 414px) {
+body {
+font-size: 14px;
+}
+
+.screen {
+padding: 15px;
+}
+
+.login-container {
+padding: 20px;
+border-width: 2px;
+}
+
+.logo {
+max-width: 120px;
+}
+    
+    .logo-small {
+        max-width: 60px;
+    }
+    
+    h1.pixel-text {
+        font-size: 16px;
+    }
+    
+    h2.pixel-text {
+        font-size: 14px;
+    }
+    
+    .pixel-button {
+        font-size: 10px;
+        padding: 10px 15px;
+        min-height: 48px;
+    }
+    
+    .nav-button {
+        width: 280px;
+        font-size: 12px;
+    }
+    
+    .main-nav {
+        gap: 15px;
+    }
+    
+    .content-section {
+        padding: 20px;
+        margin: 10px;
+        border-width: 2px;
+    }
+    
+    .back-button {
+        top: 10px;
+        left: 10px;
+        font-size: 10px;
+        min-width: 80px;
+    }
+}
+
+@media (max-width: 320px) {
+    .nav-button {
+        width: 250px;
+    }
+    
+    .pixel-text.small {
+        font-size: 8px;
+    }
+}
+
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    #snakeCanvas {
+        display: none;
+    }
+    
+    .pixel-button {
+        transition: none;
+    }
+    
+    .pixel-button:active {
+        transform: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .pixel-button {
+        border-width: 4px;
+    }
+    
+    .content-section {
+        border-width: 6px;
+    }
+}
+
+/* Safe area insets for mobile devices */
+@supports (padding: max(0px)) {
+    .screen {
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
+    }
+}

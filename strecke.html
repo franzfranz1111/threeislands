@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <title>Strecke - Bremer Straßencobras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Canvas für Snake-Animation im Hintergrund -->
+    <canvas id="snakeCanvas"></canvas>
+
+    <!-- Strecke Page -->
+    <div class="screen">
+        <div class="content-section active">
+            <a href="index.html#menu" class="back-button pixel-button">← Zurück</a>
+            <h2 class="pixel-text">Tour-Strecke</h2>
+            <div class="image-container">
+                <p class="pixel-text">Die geplanten Routen für unsere 3 Islands Tour</p>
+                
+                <div class="route-links">
+                    <a href="https://www.komoot.com/de-de/collection/3768178/-noeiland2see" 
+                       target="_blank" 
+                       class="pixel-button route-link">
+                        📍 Routen auf Komoot ansehen
+                    </a>
+                </div>
+                
+                <p class="pixel-text small">
+                    Alle Etappen und Varianten der 3 Islands Tour findest du in unserer Komoot-Sammlung.
+                    Perfekt für GPS-Navigation und detaillierte Streckenplänung!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="snake.js"></script>
+</body>
+</html>

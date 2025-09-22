@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <title>Anmeldung - Bremer Straßencobras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Canvas für Snake-Animation im Hintergrund -->
+    <canvas id="snakeCanvas"></canvas>
+
+    <!-- Anmelden Page -->
+    <div class="screen">
+        <div class="content-section active">
+            <a href="index.html#menu" class="back-button pixel-button">← Zurück</a>
+            <h2 class="pixel-text">Anmeldung</h2>
+            <div class="signup-info">
+                <!-- Urgent Offer Banner -->
+                <div class="urgent-banner">
+                    <p class="pixel-text" style="color: #FF3366; font-size: 18px; text-align: center;">
+                        🚨 LIMITIERTES ANGEBOT! 🚨
+                    </p>
+                </div>
+                
+                <!-- Countdown Timer -->
+                <div class="countdown-container">
+                    <p class="pixel-text small" style="color: #FFFF00; text-align: center;">
+                        Dieses Angebot läuft ab in:
+                    </p>
+                    <div id="countdown" class="countdown-display">
+                        <div class="countdown-unit">
+                            <span id="hours" class="countdown-number">23</span>
+                            <span class="countdown-label">STD</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span id="minutes" class="countdown-number">45</span>
+                            <span class="countdown-label">MIN</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span id="seconds" class="countdown-number">32</span>
+                            <span class="countdown-label">SEK</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Availability Alert -->
+                <div class="availability-alert">
+                    <p class="pixel-text" style="color: #FF6600; text-align: center;">
+                        ⚠️ NUR NOCH <strong style="color: #FF0000;">3 VON 10</strong> PLÄTZEN VERFÜGBAR! ⚠️
+                    </p>
+                </div>
+                
+                <p class="pixel-text">
+                    🔥 <strong>FRÜHANMELDER-RABATT:</strong> Sichere dir jetzt deinen Platz für nur <span style="text-decoration: line-through;">35€</span> <strong style="color: #00FF66;">25€</strong>!
+                    Die Anmeldung läuft über unsere exklusive Telegram-Gruppe.
+                </p>
+                
+                <div class="signup-steps">
+                    <h3 class="pixel-text">⚡ JETZT SCHNELL ANMELDEN:</h3>
+                    <p class="pixel-text small">
+                        1. 🚀 Klicke SOFORT auf den Telegram-Link<br>
+                        2. 💨 Tritt der Gruppe bei (NUR 3 Plätze frei!)<br>
+                        3. 🎯 Sichere dir deinen Platz<br>
+                        4. 🎉 Genieße den RABATT von 10€!
+                    </p>
+                </div>
+                
+                <a href="#" class="pixel-button signup-link pulsing" onclick="alert('Telegram-Gruppe wird noch eingerichtet!')">
+                    🚴‍♂️ JETZT ANMELDEN & SPAREN!
+                </a>
+                
+                <div class="contact-info">
+                    <p class="pixel-text small">
+                        <strong>🎁 IM PREIS ENTHALTEN:</strong><br>
+                        ✅ Premium-Verpflegung<br>
+                        ✅ GPS-Route & Karte<br>
+                        ✅ Erste-Hilfe-Kit<br>
+                        ✅ Cobra-Aufkleber-Set<br><br>
+                        
+                        <strong style="color: #FF3366;">⏰ WARNUNG:</strong> Nach Ablauf des Timers steigt der Preis auf 35€!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="snake.js"></script>
+    <script src="countdown.js"></script>
+</body>
+</html>

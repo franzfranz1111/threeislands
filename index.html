@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <title>Bremer Straßencobras - 3 Islands Tour</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Canvas für Snake-Animation im Hintergrund -->
+    <canvas id="snakeCanvas"></canvas>
+
+    <!-- Login Screen -->
+    <div id="loginScreen" class="screen">
+        <div class="login-container">
+            <img src="logo.png" alt="Bremer Straßencobras Logo" class="logo">
+            <h1 class="pixel-text">Bremer Straßencobras</h1>
+            <h2 class="pixel-text">3 Islands Tour</h2>
+            <div class="login-form">
+                <input type="password" id="accessCode" placeholder="Zugangscode eingeben" class="pixel-input">
+                <button id="loginButton" class="pixel-button">Einloggen</button>
+                <div id="errorMessage" class="error-message pixel-text"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="mainApp" class="screen hidden">
+        <!-- Hauptmenü -->
+        <div id="mainMenu" class="menu-screen active">
+            <h1 class="pixel-text">Hauptmenü</h1>
+            <nav class="main-nav">
+                <a href="strecke.html" class="nav-button pixel-button">Strecke</a>
+                <a href="trailer.html" class="nav-button pixel-button">Trailer</a>
+                <a href="anmelden.html" class="nav-button pixel-button">Anmelden</a>
+            </nav>
+            <button id="logoutButton" class="pixel-button logout-button">Abmelden</button>
+        </div>
+
+        <!-- Strecke Section -->
+        <div id="strecke" class="content-section">
+            <h2 class="pixel-text">Tour-Strecke</h2>
+            <div class="image-container">
+                <div class="placeholder-image">
+                    <p class="pixel-text">Streckenkarte folgt...</p>
+                </div>
+                <p class="pixel-text">Die geplante Route für unsere 3 Islands Tour</p>
+            </div>
+        </div>
+
+        <!-- Trailer Section -->
+        <div id="trailer" class="content-section">
+            <h2 class="pixel-text">Tour-Trailer</h2>
+            <div class="video-container">
+                <div class="youtube-embed">
+                    <iframe id="trailerVideo" 
+                            src="" 
+                            title="Fahrradtour Trailer" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <p class="video-fallback pixel-text hidden">Video kann nicht geladen werden</p>
+            </div>
+        </div>
+
+        <!-- Anmelden Section -->
+        <div id="anmelden" class="content-section">
+            <h2 class="pixel-text">Anmeldung</h2>
+            <div class="signup-info">
+                <p class="pixel-text">
+                    Die Anmeldung für die 3 Islands Tour läuft über unsere Telegram-Gruppe.
+                    Dort erhältst du alle wichtigen Updates und kannst dich mit anderen Teilnehmern austauschen.
+                </p>
+                <a href="#" id="telegramLink" class="pixel-button signup-link" target="_blank">
+                    Zur Telegram-Gruppe
+                </a>
+                <p class="pixel-text small">
+                    Alternativ kannst du uns auch eine E-Mail schreiben: info@bremer-strassencobras.de
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
